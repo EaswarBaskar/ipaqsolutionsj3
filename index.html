@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPAQ Solutions | Pharmaceutical and Bio Pharmaceutical Automation</title>
+    <meta name="description"
+        content="iPAQ Solutions delivers process engineering, industrial automation, batch control, and qualification for pharmaceutical and bio pharmaceutical and process industries. Based in Bangalore.">
+
+    <!-- SEO: Open Graph -->
+    <meta property="og:title" content="iPAQ Solutions | Pharmaceutical and Bio Pharmaceutical Automation">
+    <meta property="og:description"
+        content="Advanced engineering and automation solutions for the pharmaceutical and bio pharmaceutical and biotech industries.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/hero_bg.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon (inline SVG data URI) -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='sans-serif' font-weight='bold' fill='%231E3A5F'>i</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- 3D Core -->
+    <script defer src="https://unpkg.com/three@0.147.0/build/three.min.js"></script>
+    <!-- Three.js Post-Processing (Bloom) -->
+    <script defer src="https://unpkg.com/three@0.147.0/examples/js/shaders/CopyShader.js"></script>
+    <script defer src="https://unpkg.com/three@0.147.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script defer src="https://unpkg.com/three@0.147.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script defer src="https://unpkg.com/three@0.147.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script defer src="https://unpkg.com/three@0.147.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script defer src="https://unpkg.com/three@0.147.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <!-- Animation Libraries -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Smooth Scroll -->
+    <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <style>
+        /* Lenis required setup */
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .stats-wrapper {
+            position: absolute;
+            bottom: 40px;
+            right: 60px;
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 0;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css?v=3">
+
+    <!-- SEO: JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "iPAQ Solutions Pvt. Ltd.",
+      "image": "assets/logo.png",
+      "url": "https://ipaqsolutions.com",
+      "email": "info@ipaqsolutions.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "#954, 2nd Floor, V&S Arcade, H.M.T Layout, Nagasandra Main Road",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "postalCode": "560073",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+
+    <!-- Theme Initialization -->
+    <script>
+        // Set Light Mode as the default theme on load
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    </script>
+</head>
+
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#content-wrapper" id="skip-link"
+        style="position:absolute;top:-100px;left:0;background:var(--c-accent);color:#000;padding:10px 20px;z-index:10000;font-family:var(--font-accent);transition:top 0.3s;"
+        onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to Content</a>
+
+    <!-- Loading Screen -->
+    <div id="loader" role="status" aria-label="Loading">
+        <!-- Animated background particles -->
+        <div class="loader-particles" aria-hidden="true">
+            <span class="lp lp1"></span><span class="lp lp2"></span><span class="lp lp3"></span>
+            <span class="lp lp4"></span><span class="lp lp5"></span><span class="lp lp6"></span>
+            <span class="lp lp7"></span><span class="lp lp8"></span>
+        </div>
+
+        <!-- Scan line -->
+        <div class="loader-scan" aria-hidden="true"></div>
+
+        <!-- Central content -->
+        <div class="loader-inner">
+            <!-- DNA Helix -->
+            <div class="dna-helix" aria-hidden="true">
+                <div class="dna-strand dna-strand-1">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="dna-rungs" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="dna-strand dna-strand-2">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <!-- Logo -->
+            <img src="assets/logo.png" alt="iPAQ Solutions Logo" class="loader-logo">
+
+            <!-- Tagline -->
+            <div class="loader-sub">Pharmaceutical and Bio Pharmaceutical Industry Automation &amp; Process Engineering
+            </div>
+
+            <!-- Progress -->
+            <div class="loader-progress-wrap">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                    <div class="progress-glow"></div>
+                </div>
+                <div class="loader-percent"><span id="loader-pct">0</span>%</div>
+            </div>
+
+            <!-- Status text -->
+            <div class="loader-status" id="loader-status">Initializing systems...</div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-circle" aria-hidden="true"></div>
+
+    <div id="bg-track" aria-hidden="true">
+        <!-- bg-slide 0: Home – deep-space blue gradient with image -->
+        <div class="bg-slide active-bg"
+            style="background: url('img/hero.png') no-repeat center center / cover, radial-gradient(ellipse at 20% 50%, #0a2a4a 0%, #020c1b 55%, #040d18 100%); opacity: 1;">
+        </div>
+        <!-- bg-slide 1: Showcase – teal/cyan tech gradient -->
+        <div class="bg-slide"
+            style="background: radial-gradient(ellipse at 70% 30%, #003d4d 0%, #011525 50%, #020c1b 100%); opacity: 0;">
+        </div>
+        <!-- bg-slide 2: About/Services – deep indigo gradient -->
+        <div class="bg-slide"
+            style="background: radial-gradient(ellipse at 30% 70%, #120a2e 0%, #0d1a2e 45%, #020c1b 100%); opacity: 0;">
+        </div>
+    </div>
+
+    <!-- Persistent 3D Canvas -->
+    <div id="three-canvas-container" style="position:fixed; inset:0; z-index:-1; pointer-events:none;"></div>
+
+    <!-- UI Overlays -->
+    <div class="ui-brackets" aria-hidden="true" style="z-index: 50;">
+        <div class="bracket tl" style="border-color: rgba(255,255,255,0.1);"></div>
+        <div class="bracket tr" style="border-color: rgba(255,255,255,0.1);"></div>
+        <div class="bracket bl" style="border-color: rgba(255,255,255,0.1);"></div>
+        <div class="bracket br" style="border-color: rgba(255,255,255,0.1);"></div>
+    </div>
+
+    <!-- Ticker -->
+    <div class="ticker" aria-hidden="true">
+        <div class="ticker-inner">
+            <span class="accent">iPAQ</span> &nbsp;•&nbsp; Process Automation &nbsp;•&nbsp; Bioprocess Engineering
+            &nbsp;•&nbsp; Commissioning &nbsp;•&nbsp; Qualification
+            &nbsp;•&nbsp; Embedded Engineering &nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="accent">iPAQ</span> &nbsp;•&nbsp; Process Automation &nbsp;•&nbsp; Bioprocess Engineering
+            &nbsp;•&nbsp; Commissioning &nbsp;•&nbsp; Qualification
+            &nbsp;•&nbsp; Embedded Engineering &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+    <!-- Slide Position Indicator -->
+    <div class="slide-indicator" aria-label="Slide navigation">
+        <button class="slide-dot active" data-slide="0" aria-label="Go to Home"></button>
+        <button class="slide-dot" data-slide="1" aria-label="Go to About"></button>
+        <button class="slide-dot" data-slide="2" aria-label="Go to Services"></button>
+        <button class="slide-dot" data-slide="3" aria-label="Go to Why Choose Us"></button>
+        <button class="slide-dot" data-slide="4" aria-label="Go to Contact"></button>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="logo"><img src="assets/logo.png" alt="iPAQ Solutions Logo"></div>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+            <a href="#home" data-index="0" class="active">Home</a>
+            <a href="#about" data-index="1">About Us</a>
+            <a href="#products" data-index="2">Services</a>
+            <a href="#clients" data-index="3" style="display: none;">Clients</a>
+            <a href="#contact" data-index="4">Contact</a>
+
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="display:none;">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Content Wrapper -->
+    <main id="content-wrapper" tabindex="-1">
+
+        <!-- Section 0: Home -->
+        <section class="section active" id="home">
+            <div class="home-content">
+                <div class="hero-text">
+
+                    <h1 class="headline">
+                        <div class="hl-line1" style="color: #0F75BC; display: block; text-align: center; font-size: min(7vw, 5.5rem); line-height: 1.1; margin-bottom: 10px;">
+                            ENGINEERING SERVICES FOR</div>
+                        <div class="hl-line3"
+                            style="letter-spacing: 0.05em; display: block; text-align: center; color: #8CC63F; font-size: min(5vw, 4rem); line-height: 1.2;">
+                            PHARMACEUTICAL & BIO PHARMACEUTICAL INDUSTRY</div>
+                    </h1>
+                    <p class="subtitle">Process Engineering, Industrial Automation, Batch Control, & Qualification for
+                        Pharmaceutical Excellence.</p>
+                    <div class="cta-group">
+                        <a href="#products" class="btn" data-index="3">Explore Services</a>
+                        <a href="#contact" class="btn btn-outline" data-index="5">Contact Us</a>
+                    </div>
+                </div>
+                
+                <div class="stats-wrapper">
+                    <div class="stats-card">
+                        <div class="stat-item" data-count="15" data-suffix="+">
+                            <h4>15+</h4>
+                            <p>Years Exp</p>
+                        </div>
+                        <div class="stat-item" data-count="100" data-suffix="+">
+                            <h4>100+</h4>
+                            <p>Projects</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>BANGALORE</h4>
+                            <p>Location</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: About -->
+        <section class="section" id="about">
+            <h2 class="about-text">
+                iPAQ Solutions is an <span>integrated</span> solutions partner delivering <span>PRECISED</span>
+                automation solutions, bioprocess engineering, qualification for <span>pharma & Biotech facility</span>.
+            </h2>
+        </section>
+
+        <!-- Section 2: 3D Showcase (Story Step 1) -->
+        <!-- <section class="section" id="showcase">
+            <div class="showcase-content">
+                <div class="showcase-sub">PROCESS AUTOMATION</div>
+                <h2 class="showcase-title">INNOVATE</h2>
+            </div>
+
+        </section> -->
+
+        <!-- Section 2: Products -->
+        <section class="section" id="products">
+            <h2 class="section-title" data-title="OUR CORE SERVICES">OUR CORE SERVICES</h2>
+            <div class="product-grid">
+                <div class="product-item" data-name="Bioprocess Engineering" data-num="01">
+                    <svg class="product-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 2v7.31"></path>
+                        <path d="M14 9.3V2"></path>
+                        <path d="M8.5 2h7"></path>
+                        <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
+                        <path d="M5.52 16h12.96"></path>
+                    </svg>
+                    <div>
+                        <h3>BIOPROCESS<br>ENGINEERING</h3>
+                        <div class="product-meta">P&ID, Reviews <span>→</span></div>
+                    </div>
+                </div>
+                <div class="product-item" data-name="Process Automation" data-num="02">
+                    <svg class="product-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z">
+                        </path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <div>
+                        <h3>PROCESS<br>AUTOMATION</h3>
+                        <div class="product-meta">Siemens PCS 7 <span>→</span></div>
+                    </div>
+                </div>
+                <div class="product-item" data-name="Commissioning & Qualification" data-num="03">
+                    <svg class="product-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <div>
+                        <h3>COMMISSIONING &<br>QUALIFICATION</h3>
+                        <div class="product-meta">Compliance Ready <span>→</span></div>
+                    </div>
+                </div>
+                <div class="product-item" data-name="Embedded Engineering" data-num="04">
+                    <svg class="product-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                        <rect x="9" y="9" width="6" height="6"></rect>
+                        <line x1="9" y1="1" x2="9" y2="4"></line>
+                        <line x1="15" y1="1" x2="15" y2="4"></line>
+                        <line x1="9" y1="20" x2="9" y2="23"></line>
+                        <line x1="15" y1="20" x2="15" y2="23"></line>
+                        <line x1="20" y1="9" x2="23" y2="9"></line>
+                        <line x1="20" y1="14" x2="23" y2="14"></line>
+                        <line x1="1" y1="9" x2="4" y2="9"></line>
+                        <line x1="1" y1="14" x2="4" y2="14"></line>
+                    </svg>
+                    <div>
+                        <h3>EMBEDDED<br>ENGINEERING</h3>
+                        <div class="product-meta">Support &amp; Optimization <span>→</span></div>
+                    </div>
+                </div>
+                <div class="product-item" data-name="Digital Transformation" data-num="05">
+                    <svg class="product-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                        <path d="M6 8h.01M6 12h.01M10 8h8M10 12h8"></path>
+                    </svg>
+                    <div>
+                        <h3>DIGITAL<br>TRANSFORMATION</h3>
+                        <div class="product-meta">IT &amp; OT Integration <span>→</span></div>
+                    </div>
+                </div>
+                <div class="product-item" data-name="MES Implementation" data-num="06">
+                    <svg class="product-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="2"></rect>
+                        <line x1="2" y1="9" x2="22" y2="9"></line>
+                        <line x1="2" y1="15" x2="22" y2="15"></line>
+                        <line x1="9" y1="9" x2="9" y2="22"></line>
+                        <line x1="15" y1="9" x2="15" y2="22"></line>
+                    </svg>
+                    <div>
+                        <h3>MES<br>IMPLEMENTATION</h3>
+                        <div class="product-meta">Real-Time Operations <span>→</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Why Choose iPAQ -->
+        <section class="section" id="clients">
+            <div class="why-wrapper">
+                <div class="why-header">
+                    <h2 class="section-title why-title" data-title="WHY CHOOSE iPAQ?">WHY CHOOSE iPAQ?</h2>
+                    <p class="why-subtitle">15+ years delivering excellence across pharma, biopharma &amp; bioprocess automation</p>
+                </div>
+                <div class="why-grid">
+
+                <!-- Card 1 -->
+                <div class="why-card" data-num="01">
+                    <div class="why-card-accent" style="--ac:#0EA5E9;"></div>
+                    <div class="why-icon-box" style="--ac:#0EA5E9;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="8" height="8" rx="1.5"/><rect x="14" y="2" width="8" height="8" rx="1.5"/>
+                            <rect x="2" y="14" width="8" height="8" rx="1.5"/><path d="M18 14v8M14 18h8"/>
+                        </svg>
+                    </div>
+                    <div class="why-card-body">
+                        <h3 class="why-card-title">Integrated Solutions Provider</h3>
+                        <p class="why-desc">One-stop partner for Bioprocess, Automation, Qualification &amp; Embedded Engineering — reducing vendor complexity and improving coordination.</p>
+                    </div>
+                    <div class="why-card-tag" style="--ac:#0EA5E9;">INTEGRATED PROVIDER</div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="why-card" data-num="02">
+                    <div class="why-card-accent" style="--ac:#8CC63F;"></div>
+                    <div class="why-icon-box" style="--ac:#8CC63F;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="7" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/><path d="M9 14l1.5 2.5 4-5"/>
+                        </svg>
+                    </div>
+                    <div class="why-card-body">
+                        <h3 class="why-card-title">15+ Years Deep Expertise</h3>
+                        <p class="why-desc">Proven track record across pharma and biopharma with specialised knowledge in regulated environments and GxP compliance.</p>
+                    </div>
+                    <div class="why-card-tag" style="--ac:#8CC63F;">DEEP DOMAIN KNOWLEDGE</div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="why-card" data-num="03">
+                    <div class="why-card-accent" style="--ac:#F59E0B;"></div>
+                    <div class="why-icon-box" style="--ac:#F59E0B;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                        </svg>
+                    </div>
+                    <div class="why-card-body">
+                        <h3 class="why-card-title">Multi-Platform Competence</h3>
+                        <p class="why-desc">Expertise across Siemens, Copa-Data &amp; Ignition — giving clients full flexibility of platform choice without lock-in.</p>
+                    </div>
+                    <div class="why-card-tag" style="--ac:#F59E0B;">PLATFORM AGNOSTIC</div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="why-card" data-num="04">
+                    <div class="why-card-accent" style="--ac:#EC4899;"></div>
+                    <div class="why-icon-box" style="--ac:#EC4899;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <div class="why-card-body">
+                        <h3 class="why-card-title">Regulatory Excellence</h3>
+                        <p class="why-desc">Deep understanding of GAMP5, 21 CFR Part 11, EU GMP Annex 11, Data Integrity, and ISA 88 compliance requirements.</p>
+                    </div>
+                    <div class="why-card-tag" style="--ac:#EC4899;">GxP COMPLIANT</div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="why-card" data-num="05">
+                    <div class="why-card-accent" style="--ac:#0EA5E9;"></div>
+                    <div class="why-icon-box" style="--ac:#0EA5E9;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <div class="why-card-body">
+                        <h3 class="why-card-title">End-to-End Lifecycle Support</h3>
+                        <p class="why-desc">From design and P&amp;ID development through qualification, validation, and long-term operational support.</p>
+                    </div>
+                    <div class="why-card-tag" style="--ac:#0EA5E9;">FULL LIFECYCLE</div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="why-card" data-num="06">
+                    <div class="why-card-accent" style="--ac:#8CC63F;"></div>
+                    <div class="why-icon-box" style="--ac:#8CC63F;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <div class="why-card-body">
+                        <h3 class="why-card-title">Industry 4.0 Ready</h3>
+                        <p class="why-desc">IoT solutions and MES/DCS integration capabilities to futureproof pharma manufacturing operations.</p>
+                    </div>
+                    <div class="why-card-tag" style="--ac:#8CC63F;">SMART MANUFACTURING</div>
+                </div>
+
+                </div><!-- end why-grid -->
+            </div><!-- end why-wrapper -->
+        </section>
+
+        <!-- Section 4: Contact -->
+        <section class="section" id="contact">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2 class="section-title" data-title="LET'S CONNECT"
+                        style="font-size:clamp(3rem,5vw,5rem);margin-bottom:15px;">LET'S CONNECT</h2>
+                    <h3>HEADQUARTERS</h3>
+                    <p>#954, 2nd Floor, V&S Arcade,<br>H.M.T Layout, Nagasandra Main Road,<br>Bangalore, Karnataka –
+                        560073</p>
+                    <h3>REACH US</h3>
+                    <p>
+                        <a href="mailto:info@ipaqsolutions.com">info[@]ipaqsolutions[.]com</a>
+                    </p>
+                </div>
+                <div class="contact-right">
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.946487637812!2d77.49877287574824!3d13.039078213393886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3cc5ac985293%3A0x8dfca5f1d354d4fd!2s2GQ2%2BJGC%20V%26S%20Arcade%2C%20954%2C%20Nagasandra%20Main%20Rd%2C%20near%20sbi%20bank%2C%20HMT%20Layout%2C%20Nagasandra%2C%20Bengaluru%2C%20Karnataka%20560073!5e0!3m2!1sen!2sin!4v1773926279704!5m2!1sen!2sin"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            title="iPAQ Solutions location on Google Maps"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Detail Panel Overlay -->
+    <div id="detail-panel" aria-hidden="true">
+        <button class="close-detail">CLOSE [ESC]</button>
+        <div class="detail-header">
+            <span id="detail-category">SERVICE CATEGORY</span>
+            <h2 id="detail-title">Service Name</h2>
+        </div>
+        <div class="detail-content" id="detail-desc">
+            Specific service description goes here...
+        </div>
+        <div class="detail-specs" id="detail-specs">
+            <!-- Dynamic specs -->
+        </div>
+        <a href="#contact" class="btn btn-outline" style="margin-top:20px; width:fit-content;" id="cta-detail">Inquire
+            Now</a>
+    </div>
+
+    <script defer src="script.js"></script>
+</body>
+
+</html>
